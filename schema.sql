@@ -6,7 +6,7 @@ USE etsy;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE users (
-	id int NOT NULL AUTO_INCREMENT,
+	id int NOT NULL AUTO_INCREMENT UNIQUE,
 	avatar varchar(150) NOT NULL,
 	username varchar(50) NOT NULL,
 	PRIMARY KEY (id)
@@ -14,12 +14,13 @@ CREATE TABLE users (
 
 DROP TABLE IF EXISTS `product_reviews`;
 CREATE TABLE product_reviews (
-	id int NOT NULL AUTO_INCREMENT,
+	id int NOT NULL AUTO_INCREMENT UNIQUE,
   text varchar(150) NOT NULL,
 	ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   dt DATETIME DEFAULT CURRENT_TIMESTAMP,
   star_rating tinyint,
 	user_id int NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(id)
 	product_id int NOT NULL,
   PRIMARY KEY (id)
 );
@@ -37,7 +38,9 @@ CREATE TABLE store_reviews (
 	text varchar(150) NOT NULL,
 	star_rating tinyint,
 	user_id int NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(id)
 	store_id int NOT NULL,
+  FOREIGN KEY (store_id) REFERENCES store(id)
 	PRIMARY KEY (id)
 );
 
