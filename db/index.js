@@ -26,5 +26,6 @@ const getStoreReviews = function(productId, callback) {
 }
 
 module.exports = {
-  getProductReviews
+	getProductReviews,
+	getStoreReviews
 };
