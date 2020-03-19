@@ -11,11 +11,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/../client/dist/'));
 
-app.get('/listing/:productNumber', (req, res) => {
-	console.log('here')
-	res.sendFile('index.html', {
-		root: path.join(__dirname, '/../client/dist/')
-	});
+app.get('/', (req, res) => {
+	res.render('index')
 });
 
 app.get('/product/reviews/:id', (req, res) => {
