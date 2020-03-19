@@ -6,7 +6,7 @@ USE etsy;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE users (
-	id int NOT NULL AUTO_INCREMENT UNIQUE,
+  id int NOT NULL AUTO_INCREMENT UNIQUE,
 	avatar varchar(150) NOT NULL,
 	username varchar(50) NOT NULL,
 	PRIMARY KEY (id)
