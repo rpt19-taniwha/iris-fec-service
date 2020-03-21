@@ -20,13 +20,13 @@ CREATE TABLE product_reviews (
   dt DATETIME DEFAULT CURRENT_TIMESTAMP,
   star_rating tinyint,
 	user_id int NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user(id)
+  FOREIGN KEY (user_id) REFERENCES users(id),
 	product_id int NOT NULL,
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS `store`;
-CREATE TABLE store (
+DROP TABLE IF EXISTS `stores`;
+CREATE TABLE stores (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(50) NOT NULL,
 	PRIMARY KEY (id)
@@ -38,9 +38,9 @@ CREATE TABLE store_reviews (
 	text varchar(150) NOT NULL,
 	star_rating tinyint,
 	user_id int NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user(id)
+  FOREIGN KEY (user_id) REFERENCES users(id),
 	store_id int NOT NULL,
-  FOREIGN KEY (store_id) REFERENCES store(id)
+  FOREIGN KEY (store_id) REFERENCES stores(id),
 	PRIMARY KEY (id)
 );
 
@@ -146,7 +146,7 @@ INSERT INTO `users` VALUES ('1','http://lorempixel.com/75/75/','toy.carmel'),
 ('100','http://lorempixel.com/75/75/','dasia.mante');
 
 
-INSERT INTO `store` VALUES ('1','officia'),
+INSERT INTO `stores` VALUES ('1','officia'),
 ('2','nesciunt'),
 ('3','nemo'),
 ('4','et'),
