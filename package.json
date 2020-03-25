@@ -1,33 +1,69 @@
 {
   "name": "reviews",
-  "version": "",
-  "description": "",
+  "description": "> Project description",
   "author": "Iris Martinez",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
+    "start": "nodemon --exec babel-node server/index.js",
     "dev:react": "webpack -d --watch",
     "seed": "mysql -u root -p < schema.sql"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.17.2",
+    "core-js": "^3.6.4",
     "css-loader": "^3.4.2",
-    "eslint": "^6.8.0",
     "express": "^4.15.4",
-    "path": "^0.12.7",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
     "mysql": "^2.14.1",
-    "style-loader": "^1.1.3"
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.5",
+    "style-loader": "^1.1.3",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
     "babel-core": "^6.23.1",
+    "babel-jest": "^25.1.0",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "jest": "^25.1.0",
+    "jest-enzyme": "^7.1.2",
+    "ts-jest": "^25.2.1",
     "webpack": "^2.2.1"
-  }
+  },
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpt19-taniwha/iris-fec-service.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/rpt19-taniwha/iris-fec-service/issues"
+  },
+  "homepage": "https://github.com/rpt19-taniwha/iris-fec-service#readme"
 }
