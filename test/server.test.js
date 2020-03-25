@@ -1,13 +1,16 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-undef */
 /* eslint-disable import/prefer-default-export */
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import 'regenerator-runtime/runtime';
+
 const request = require('supertest');
-const app = require('../server'); // Link to your server file
+const app = require('../server');
+// Link to your server file
 const port = 4500;
 
 
 describe('Test Reviews', () => {
-  let server = app.listen(port);
+  const server = app.listen(port);
 
   afterEach(() => { server.close(); });
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
+// const path = require('path');
 const db = require('../db');
 
 const app = express();
@@ -23,7 +23,6 @@ app.get('/product/reviews/:id', (req, res) => {
   const productId = req.params.id;
   db.getProductReviews(productId, (result, error) => {
     if (error) {
-      console.log(error)
       res.send(error);
     } else {
       res.send(result).status(200);
@@ -36,7 +35,7 @@ app.get('/store/reviews/:id', (req, res) => {
   const storeId = req.params.id;
   db.getStoreReviews(storeId, (result, error) => {
     if (error) {
-      res.send(error)
+      res.send(error);
     } else {
       res.send(result).status(200);
     }
@@ -55,7 +54,7 @@ app.get('/users/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  // console.log(`listening on port ${PORT}`);
 });
 
 module.exports = app;
