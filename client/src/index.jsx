@@ -1,27 +1,27 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
-import ProductReviews from './product_reviews.jsx'
+import ProductReviews from './product_reviews.jsx';
 
 class App extends React.Component {
-
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      productId: null,
-      storeId: null
-    }
+      productId: '1',
+      storeId: '1',
+    };
   }
 
   componentDidMount() {
-    let productId = window.location.pathname.split('/')[2]
-    this.setState({productId})
+    const productId = window.location.pathname.split('/')[2];
+    this.setState({ productId });
+    this.setState({ storeId: productId });
   }
 
   render() {
-    return <ul><ProductReviews productId={this.state.productId} storeId={this.state.storeId}/></ul>;
+    const { productId, storeId } = this.state;
+    return <ul><ProductReviews productId={productId} storeId={storeId} /></ul>;
   }
-
 }
 
 export default App;

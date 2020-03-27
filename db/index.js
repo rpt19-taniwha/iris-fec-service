@@ -7,7 +7,7 @@ connection.connect();
 
 
 const getProductReviews = function (productId, callback) {
-  connection.query(`SELECT * FROM product_reviews WHERE product_id=${productId}`, (error, results, fields) => {
+  connection.query(`SELECT * FROM product_reviews WHERE product_id=${productId}`, (error, results) => {
     if (error) {
       callback(null, error);
     } else {
@@ -17,7 +17,7 @@ const getProductReviews = function (productId, callback) {
 };
 
 const getStoreReviews = function (storeId, callback) {
-  connection.query(`SELECT * FROM store_reviews WHERE store_id=${storeId}`, (error, results, fields) => {
+  connection.query(`SELECT * FROM store_reviews WHERE store_id=${storeId}`, (error, results) => {
     if (error) {
       callback(null, error);
     } else {
@@ -27,8 +27,7 @@ const getStoreReviews = function (storeId, callback) {
 };
 
 const getUser = function (userId, callback) {
-  console.log(userId)
-  connection.query(`SELECT * FROM users WHERE id=${userId}`, (error, results, fields) => {
+  connection.query(`SELECT * FROM users WHERE id=${userId}`, (error, results) => {
     if (error) {
       callback(null, error);
     } else {

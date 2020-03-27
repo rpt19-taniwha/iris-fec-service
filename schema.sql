@@ -22,7 +22,8 @@ CREATE TABLE product_reviews (
 	user_id int NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id),
 	product_id int NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+	FOREIGN KEY (store_id) REFERENCES stores(id)
 );
 
 DROP TABLE IF EXISTS `stores`;
