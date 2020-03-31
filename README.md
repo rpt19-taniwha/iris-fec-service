@@ -37,3 +37,10 @@ npm install -g webpack
 npm install
 ```
 
+
+// database login
+// scripts
+// install or run webpack if its not working
+// port numbers
+// endpoints
+

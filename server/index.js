@@ -30,10 +30,32 @@ app.get('/product/reviews/:id', (req, res) => {
   });
 });
 
+app.get('/product/reviews/:id/average', (req, res) => {
+  const productId = req.params.id;
+  db.getProductReviewsAverage(productId, (result, error) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(result).status(200);
+    }
+  });
+});
+
 // get all reviews for a certain store
 app.get('/store/reviews/:id', (req, res) => {
   const storeId = req.params.id;
   db.getStoreReviews(storeId, (result, error) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(result).status(200);
+    }
+  });
+});
+
+app.get('/store/reviews/:id/average', (req, res) => {
+  const storeId = req.params.id;
+  db.getStoreReviewsAverage(storeId, (result, error) => {
     if (error) {
       res.send(error);
     } else {

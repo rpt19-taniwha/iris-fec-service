@@ -16,6 +16,25 @@ const getProductReviews = function (productId, callback) {
   });
 };
 
+const getProductReviewsAverage = function (productId, callback) {
+  connection.query(`SELECT product_id, AVG(star_rating) FROM product_reviews WHERE product_id=${productId}`, (error, results) => {
+    if (error) {
+      callback(null, error);
+    } else {
+      callback(results, null);
+    }
+  });
+};
+
+const getStoreReviewsAverage = function (storeId, callback) {
+  connection.query(`SELECT store_id, AVG(star_rating) FROM store_reviews WHERE store_id=${storeId}`, (error, results) => {
+    if (error) {
+      callback(null, error);
+    } else {
+      callback(results, null);
+    }
+  });
+};
 const getStoreReviews = function (storeId, callback) {
   connection.query(`SELECT * FROM store_reviews WHERE store_id=${storeId}`, (error, results) => {
     if (error) {
@@ -40,5 +59,7 @@ module.exports = {
   getProductReviews,
   getStoreReviews,
   getUser,
+  getProductReviewsAverage,
+  getStoreReviewsAverage,
   connection,
 };
