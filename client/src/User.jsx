@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 const User = (props) => {
+  const server = 'https://localhost:1234';
   const [users, setUsers] = useState([]);
 
   // const getUser = (userId) => {
@@ -15,7 +15,7 @@ const User = (props) => {
   useLayoutEffect(() => {
     function effectFunction() {
       async function getUser(userId) {
-        const response = await fetch(`/users/${userId}`);
+        const response = await fetch(`${server}/users/${userId}`);
         const json = await response.json();
         setUsers(json);
       }

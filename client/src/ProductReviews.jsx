@@ -91,7 +91,6 @@ const ProductReviews = (props) => {
         {reviews.map((val) => (
           <div key={val.id}>
             <User userId={val.user_id} />
-            {console.log(val)}
             <Moment date={val.dt} format="MMM DD YYYY" />
             <div>{val.text}</div>
           </div>
