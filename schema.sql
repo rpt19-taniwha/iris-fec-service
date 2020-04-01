@@ -2248,4 +2248,8 @@ INSERT INTO `product_reviews` VALUES ('1','Sequi maxime voluptas sint recusandae
 ('997','Odio expedita provident ea quis. Et voluptas non sit et ratione. In possimus quis sint atque sequi voluptate eveniet neque.','1979-11-21 15:29:08','2001-01-01 00:44:28','2','49','7'),
 ('998','Natus dolor non quis quasi doloremque. Est vero est et. Qui consectetur est sed consequuntur quae libero.','2017-03-18 16:16:04','2012-07-04 18:26:57','3','30','25'),
 ('999','Non asperiores quia culpa aliquam at corporis asperiores. Eveniet enim rerum natus incidunt accusamus rerum. Molestiae reiciendis nulla accusamus nesc','1973-01-24 20:49:04','1991-09-01 03:20:13','0','18','71'),
-('1000','Ab velit placeat quia ut eos incidunt in. Nam excepturi porro consectetur ut. Nulla rem consequatur in assumenda mollitia ipsam omnis. Modi sit corpor','2013-10-09 20:07:42','2017-02-09 00:15:01','0','78','82');
+('1000','Ab velit placeat quia ut eos incidunt in. Nam excepturi porro consectetur ut. Nulla rem consequatur in assumenda mollitia ipsam omnis. Modi sit corpor','2013-10-09 20:07:42','2017-02-09 00:15:01','0','78','82'),
+('1001','Very unique gift to give to my nerdy cousin.','2013-10-09 20:07:42','2020-03-09 00:15:01','5','1','549504785'),
+('1002','Very cool item, bought as a gift for my S/O and they loved it!!','2013-10-09 20:07:42','2017-02-09 00:15:01','5','2','549504785'),
+('1003','I love it sooo much, Im already reading it haha. Thanks a ton!!!','2013-10-09 20:07:42','2017-02-09 00:15:01','5','3','549504785'),
+('1004','Beautiful! Great for Pokémon lovers!','2013-10-09 20:07:42','2017-02-09 00:15:01','5','4','549504785');

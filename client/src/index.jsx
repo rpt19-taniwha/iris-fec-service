@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ProductReviews from './product_reviews.jsx';
+import ProductReviews from './ProductReviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
