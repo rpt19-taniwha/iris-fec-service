@@ -7,20 +7,26 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: '1',
-      storeId: '1',
+      productId: '',
+      storeId: '',
     };
   }
 
-  componentDidMount() {
+  // eslint-disable-next-line react/no-deprecated
+  componentWillMount() {
     const productId = window.location.pathname.split('/')[2];
     this.setState({ productId });
-    this.setState({ storeId: productId });
+    this.setState({ storeId: '59' });
   }
+
+  // getProduct(storeId) {
+  //   // make call to products/:number  storeNumber
+
+  // }
 
   render() {
     const { productId, storeId } = this.state;
-    return <ul><ProductReviews productId={productId} storeId={storeId} /></ul>;
+    return <div><ProductReviews productId={productId} storeId={storeId} /></div>;
   }
 }
 

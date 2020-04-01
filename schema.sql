@@ -15,15 +15,14 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS `product_reviews`;
 CREATE TABLE product_reviews (
 	id int NOT NULL AUTO_INCREMENT UNIQUE,
-  text varchar(150) NOT NULL,
+  text varchar(250) NOT NULL,
 	ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   dt DATETIME DEFAULT CURRENT_TIMESTAMP,
   star_rating tinyint,
 	user_id int NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id),
 	product_id int NOT NULL,
-  PRIMARY KEY (id),
-	FOREIGN KEY (store_id) REFERENCES stores(id)
+  PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS `stores`;
@@ -36,7 +35,7 @@ CREATE TABLE stores (
 DROP TABLE IF EXISTS `store_reviews`;
 CREATE TABLE store_reviews (
 	id int NOT NULL AUTO_INCREMENT,
-	text varchar(150) NOT NULL,
+	text varchar(250) NOT NULL,
 	star_rating tinyint,
 	user_id int NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id),
@@ -1247,7 +1246,10 @@ INSERT INTO `store_reviews` VALUES ('1','Assumenda et asperiores debitis sed opt
 ('997','Ut tenetur magni dolor velit quia rerum tenetur. Impedit a nobis deleniti qui quia. Numquam eaque qui voluptatum asperiores tenetur nam.','4','56','44'),
 ('998','Alias aut tempore vel corporis unde quo est repudiandae. Similique iste sit qui sint ullam omnis neque. Quae eum eos officiis quo. Sed consequatur con','4','7','82'),
 ('999','Officia esse neque dolores omnis omnis quia. Iusto voluptatem inventore assumenda magni qui et error maiores. Quod maiores repellat quas et quod.','0','56','27'),
-('1000','In ut facere eos placeat corrupti. Quae sit molestiae et. Sit omnis esse nihil consequuntur.\nQuidem eligendi odio qui autem voluptatem magnam. Quia au','0','91','83');
+('1000','Gorgeous images. The creator of this book must have an extensive knowledge of anatomy for these sick in depth images. Will be using this in my D&D campaign.','4','91','59'),
+('1001','lovely gift, thanks so much!','5','8','59'),
+('1002','My nephew loves it!','5','6','59'),
+('1003','This was purchased as a gift and was a huge hit! Beautiful illustrations and so much detail into each entry! Quick shipping and quick response from the seller on questions. Would definitely buy again :)','5','19','59');
 
 INSERT INTO `product_reviews` VALUES ('1','Sequi maxime voluptas sint recusandae quaerat accusantium id. Vel fugit aut numquam quos illo qui aut. Sequi nulla maxime eveniet quod. Soluta ut omni','2000-06-06 22:00:11','1974-01-30 17:21:31','0','15','12'),
 ('2','Omnis tempora accusamus quidem et dolorum. Sint omnis aut in molestiae. Pariatur maiores quos deleniti velit.','1990-03-03 16:16:08','2007-01-20 03:36:24','3','25','46'),
@@ -2249,7 +2251,7 @@ INSERT INTO `product_reviews` VALUES ('1','Sequi maxime voluptas sint recusandae
 ('998','Natus dolor non quis quasi doloremque. Est vero est et. Qui consectetur est sed consequuntur quae libero.','2017-03-18 16:16:04','2012-07-04 18:26:57','3','30','25'),
 ('999','Non asperiores quia culpa aliquam at corporis asperiores. Eveniet enim rerum natus incidunt accusamus rerum. Molestiae reiciendis nulla accusamus nesc','1973-01-24 20:49:04','1991-09-01 03:20:13','0','18','71'),
 ('1000','Ab velit placeat quia ut eos incidunt in. Nam excepturi porro consectetur ut. Nulla rem consequatur in assumenda mollitia ipsam omnis. Modi sit corpor','2013-10-09 20:07:42','2017-02-09 00:15:01','0','78','82'),
-('1001','Very unique gift to give to my nerdy cousin.','2013-10-09 20:07:42','2020-03-09 00:15:01','5','1','549504785'),
+('1001','Very unique gift to give to my nerdy cousin.','2013-10-09 20:07:42','2017-02-09 00:15:01','5','1','549504785'),
 ('1002','Very cool item, bought as a gift for my S/O and they loved it!!','2013-10-09 20:07:42','2017-02-09 00:15:01','5','2','549504785'),
 ('1003','I love it sooo much, Im already reading it haha. Thanks a ton!!!','2013-10-09 20:07:42','2017-02-09 00:15:01','5','3','549504785'),
 ('1004','Beautiful! Great for Pokémon lovers!','2013-10-09 20:07:42','2017-02-09 00:15:01','5','4','549504785');

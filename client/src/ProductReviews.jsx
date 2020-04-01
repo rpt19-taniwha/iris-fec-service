@@ -1,8 +1,11 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-named-as-default */
+// eslint-disable-next-line import/extensions
+// eslint-disable-next-line import/no-named-as-default-member
 import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Moment from 'react-moment';
-// eslint-disable-next-line import/extensions
 import User from './User.jsx';
 
 
@@ -14,14 +17,14 @@ const ProductReviews = (props) => {
   const [reviewType, setReviewType] = useState('storeReviews');
 
   const getProductReviewsAverage = (productId) => {
-    axios.get(`/product/reviews/${productId}/average`)
+    axios.get(`${server}/product/reviews/${productId}/average`)
       .then((res) => {
         setProductReviewsAverage(res.data[0]['AVG(star_rating)']);
       });
   };
 
   const getStoreReviewsAverage = (productId) => {
-    axios.get(`/store/reviews/${productId}/average`)
+    axios.get(`${server}/store/reviews/${productId}/average`)
       .then((res) => {
         setStoreReviewsAverage(res.data[0]['AVG(star_rating)']);
       });
