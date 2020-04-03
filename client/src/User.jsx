@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const User = (props) => {
-  const server = 'http://ec2-13-59-182-191.us-east-2.compute.amazonaws.com:1234/';
+  const server = 'http://ec2-13-59-182-191.us-east-2.compute.amazonaws.com:1234';
   const [users, setUsers] = useState([]);
 
   // const getUser = (userId) => {
