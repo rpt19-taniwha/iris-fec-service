@@ -10,7 +10,7 @@ import User from './User.jsx';
 
 
 const ProductReviews = (props) => {
-  const server = 'http://http://ec2-13-59-182-191.us-east-2.compute.amazonaws.com:1234/';
+  const server = 'http://ec2-13-59-182-191.us-east-2.compute.amazonaws.com:1234/';
   const [reviews, setReviews] = useState([]);
   const [productReviewsAverage, setProductReviewsAverage] = useState(0);
   const [storeReviewsAverage, setStoreReviewsAverage] = useState(0);
