@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ProductReviews from './ProductReviews.jsx';
+import './css/index.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class App extends React.Component {
 
   render() {
     const { productId, storeId } = this.state;
-    return <div><ProductReviews productId={productId} storeId={storeId} /></div>;
+    return <div className="container"><ProductReviews productId={productId} storeId={storeId} /></div>;
   }
 }
 
