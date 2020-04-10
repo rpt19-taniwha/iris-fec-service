@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React, { useLayoutEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import './css/user.css';
+import Axios from 'axios';
 
 const User = (props) => {
   const server = 'http://localhost:1234';
@@ -13,25 +15,18 @@ const User = (props) => {
   // };
 
   useLayoutEffect(() => {
-    function effectFunction() {
-      async function getUser(userId) {
-        const response = await fetch(`${server}/users/${userId}`);
-        const json = await response.json();
-        setUsers(json);
-      }
-      getUser(props.userId);
-    }
-
-    effectFunction();
+    Axios.get(`${server}/users/${props.userId}`).then((result) => {
+      setUsers(result.data);
+    });
   }, []);
 
   return (
     // want to use val.avatar but lorem picsum caches images
     <div>
       {users.map((val) => (
-        <div key={val.id}>
+        <div key={val.id} className="wt-display-flex-xs wt-align-items-center wt-mb-xs-1">
           <img alt={val.username} src={`https://i.picsum.photos/id/${Math.floor((Math.random() * 100) + 1)}/75/75.jpg`} />
-          <div key={val.id}>{val.username}</div>
+          <div key={val.id} className="username">{val.username}</div>
         </div>
       ))}
     </div>
@@ -39,7 +34,3 @@ const User = (props) => {
 };
 
 export default User;
-
-User.propTypes = {
-  userId: PropTypes.number.isRequired,
-};
