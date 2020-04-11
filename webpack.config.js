@@ -1,7 +1,7 @@
-var path = require('path');
-var SRC_DIR = path.join(__dirname, '/client/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
-const nodeExternals = require('webpack-node-externals');
+const path = require('path');
+
+const SRC_DIR = path.join(__dirname, '/client/src');
+const DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
   entry: {
@@ -11,21 +11,10 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR,
   },
-  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   module: {
     rules: [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['@babel/preset-react'],
-        },
-      },
-      {
-        test: /\.js?/,
-        include: SRC_DIR,
+        test: /\.js(x)?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
@@ -34,10 +23,12 @@ module.exports = {
       },
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],
