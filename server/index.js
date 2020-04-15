@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 // const path = require('path');
 const cors = require('cors');
 const db = require('../db');
-
+const compression = require('compression');
 const app = express();
 const PORT = 1234;
 
@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/../client/dist/`));
 
 app.use(cors());
+app.use(compression())
 
 app.get('/listing/:productNumber', (req, res) => {
   res.sendFile('index.html', {
