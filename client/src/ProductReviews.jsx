@@ -18,6 +18,7 @@ const ProductReviews = (props) => {
   const [productReviewsAverage, setProductReviewsAverage] = useState(0);
   const [storeReviewsAverage, setStoreReviewsAverage] = useState(0);
   const [reviewType, setReviewType] = useState('storeReviews');
+  const [mainImage, setMainImage] = useState('');
 
   const starGenerator = (rating) => {
     const starRating = [];
@@ -32,6 +33,15 @@ const ProductReviews = (props) => {
     axios.get(`${server}/product/reviews/${productId}/average`)
       .then((res) => {
         setProductReviewsAverage(res.data[0]['AVG(star_rating)']);
+      });
+  };
+
+  const getProductImage = (productId) => {
+    axios.get(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/mainImage/${productId}`)
+      .then((res) => {
+        console.log("HERE")
+        console.log(res.data.mainImage)
+        setMainImage(res.data.mainImage)
       });
   };
 
@@ -77,6 +87,7 @@ const ProductReviews = (props) => {
     getStoreReviews(props.storeId);
     getProductReviewsAverage(props.productId);
     getStoreReviewsAverage(props.storeId);
+    getProductImage(props.productId);
   }, []);
 
 
@@ -115,6 +126,10 @@ const ProductReviews = (props) => {
               <div className="container" key={val.id}>
                 <span className="star-container">{starGenerator(val.star_rating)}</span>
                 <div className="text">{val.text}</div>
+                <div>
+                  <p>Purchased Item:</p>
+                  <img src={mainImage} />
+                </div>
               </div>
             </div>
           ))}
