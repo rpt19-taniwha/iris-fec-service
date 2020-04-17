@@ -11,7 +11,7 @@ import './css/ProductReviews.scss';
 
 
 const ProductReviews = (props) => {
-  const server = 'http://localhost:1234';
+  const server = 'http://ec2-13-59-182-191.us-east-2.compute.amazonaws.com:1234';
   const [storeReviews, setStoreReviews] = useState([]);
   const [productReviews, setProductReviews] = useState([]);
   const [reviews, setReviews] = useState([]);

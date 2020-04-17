@@ -1,11 +1,11 @@
-img {
+#reviews img {
 	border-radius: 50% !important;
 	overflow: hidden !important;
 	height: 36px;
   width: 36px;
 }
 
-.username {
+#reviews .username {
 	margin: auto;
 	padding: 0px 7px;
 	font-size: 13px;
@@ -13,6 +13,6 @@ img {
 	color: #595959 !important;
 }
 
-.username:hover {
+#reviews .username:hover {
 	cursor: pointer;
 }

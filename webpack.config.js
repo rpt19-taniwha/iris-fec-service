@@ -1,8 +1,10 @@
-var path = require('path');
-var SRC_DIR = path.join(__dirname, '/client/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
+const path = require('path');
+
+const SRC_DIR = path.join(__dirname, '/client/src');
+const DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
+  mode: 'production',
   entry: {
     app: `${SRC_DIR}/index.jsx`,
   },
@@ -13,29 +15,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR,
+        test: /\.js(x)?$/,
         loader: 'babel-loader',
-        exclude: [/node_modules/],
-        query: {
-          presets: ['@babel/preset-react'],
-        },
-      },
-      {
-        test: /\.js?/,
-        include: SRC_DIR,
-        loader: 'babel-loader',
-        exclude: [/node_modules/],
+        exclude: /node_modules/,
         query: {
           presets: ['@babel/preset-react'],
         },
       },
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],

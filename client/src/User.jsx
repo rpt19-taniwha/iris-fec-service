@@ -4,7 +4,7 @@ import './css/user.css';
 import Axios from 'axios';
 
 const User = (props) => {
-  const server = 'http://localhost:1234';
+  const server = 'http://ec2-13-59-182-191.us-east-2.compute.amazonaws.com:1234';
   const [users, setUsers] = useState([]);
 
   // const getUser = (userId) => {
