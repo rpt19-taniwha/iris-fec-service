@@ -18,6 +18,8 @@ const ProductReviews = (props) => {
   const [productReviewsAverage, setProductReviewsAverage] = useState(0);
   const [storeReviewsAverage, setStoreReviewsAverage] = useState(0);
   const [reviewType, setReviewType] = useState('storeReviews');
+  const [mainImage, setMainImage] = useState('');
+  const [productName, setProductName] = useState('');
 
   const starGenerator = (rating) => {
     const starRating = [];
@@ -34,6 +36,20 @@ const ProductReviews = (props) => {
         setProductReviewsAverage(res.data[0]['AVG(star_rating)']);
       });
   };
+
+  const getProductImage = (productId) => {
+    axios.get(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/mainImage/${productId}`)
+      .then((res) => {
+        setMainImage(res.data.mainImage)
+      });
+  };
+
+  const getProductInfo = (productId) => {
+    axios.get(`http://ec2-18-144-174-63.us-west-1.compute.amazonaws.com:9000/products/${productId}`)
+      .then((res) => {
+        setProductName(res.data.productName)
+      });
+  }
 
   const getStoreReviewsAverage = (productId) => {
     axios.get(`${server}/store/reviews/${productId}/average`)
@@ -77,6 +93,8 @@ const ProductReviews = (props) => {
     getStoreReviews(props.storeId);
     getProductReviewsAverage(props.productId);
     getStoreReviewsAverage(props.storeId);
+    getProductImage(props.productId);
+    getProductInfo(props.productId);
   }, []);
 
 
@@ -92,22 +110,22 @@ const ProductReviews = (props) => {
           <p>{storeReviews.length}</p>
         </div>
       </div>
-      <div>
+      <div className={reviewType}>
         <div className="wt-tab">
-          <button type="button" onClick={handleClick} id="product-reviews-button" className="wt-tab__item">
+          <div onClick={handleClick} id="product-reviews-button" className="wt-tab__item">
             Reviews for this item
             {' '}
             <span className="wt-badge">{productReviews.length}</span>
-          </button>
-          <button type="button" onClick={handleClick} id="store-reviews-button" className="wt-tab__item">
+          </div>
+          <div onClick={handleClick} id="store-reviews-button" className="wt-tab__item">
             Reviews for this shop
             {' '}
             <span className="wt-badge">{storeReviews.length}</span>
-          </button>
+          </div>
         </div>
         <div>
           {reviews.map((val) => (
-            <div>
+            <div className={reviewType}>
               <div className="wt-display-flex-xs wt-align-items-center wt-mb-xs-1">
                 <div><User userId={val.user_id} /></div>
                 <div className="date"><Moment date={val.dt} format="MMM D, YYYY" /></div>
@@ -115,6 +133,10 @@ const ProductReviews = (props) => {
               <div className="container" key={val.id}>
                 <span className="star-container">{starGenerator(val.star_rating)}</span>
                 <div className="text">{val.text}</div>
+                <div className="main-image-container">
+                  <p>Purchased Item:</p>
+                  <img src={mainImage} /><span className="wt-text">{productName}</span>
+                </div>
               </div>
             </div>
           ))}

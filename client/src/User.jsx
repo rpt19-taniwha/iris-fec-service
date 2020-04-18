@@ -24,7 +24,7 @@ const User = (props) => {
     // want to use val.avatar but lorem picsum caches images
     <div>
       {users.map((val) => (
-        <div key={val.id} className="wt-display-flex-xs wt-align-items-center wt-mb-xs-1">
+        <div key={val.id} className="user wt-display-flex-xs wt-align-items-center wt-mb-xs-1">
           <img alt={val.username} src={`https://i.picsum.photos/id/${Math.floor((Math.random() * 100) + 1)}/75/75.jpg`} />
           <div key={val.id} className="username">{val.username}</div>
         </div>
