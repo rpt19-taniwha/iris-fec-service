@@ -1,4 +1,4 @@
-#reviews img {
+#reviews .user img {
 	border-radius: 50% !important;
 	overflow: hidden !important;
 	height: 36px;
