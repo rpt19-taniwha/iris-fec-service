@@ -17,7 +17,7 @@ const ProductReviews = (props) => {
   const [reviews, setReviews] = useState([]);
   const [productReviewsAverage, setProductReviewsAverage] = useState(0);
   const [storeReviewsAverage, setStoreReviewsAverage] = useState(0);
-  const [reviewType, setReviewType] = useState('storeReviews');
+  const [reviewType, setReviewType] = useState('productReviews');
   const [mainImage, setMainImage] = useState('');
   const [productName, setProductName] = useState('');
 
@@ -100,14 +100,14 @@ const ProductReviews = (props) => {
 
   return (
     <div id="reviews" className="col-md-8">
-      <div>
+      <div className="wt-display-flex">
         <div>
-          <p>Shop Rating</p>
-          <p><span>{starGenerator(storeReviewsAverage)}</span></p>
+          <p className="wt-label">Shop Rating</p>
+          <p className="stars"><span>{starGenerator(storeReviewsAverage)}</span></p>
         </div>
         <div>
-          <p>Total shop reviews</p>
-          <p>{storeReviews.length}</p>
+          <p className="wt-label">Total shop reviews</p>
+          <p className="store-reviews-num">{storeReviews.length}</p>
         </div>
       </div>
       <div className={reviewType}>
@@ -135,12 +135,17 @@ const ProductReviews = (props) => {
                 <div className="text">{val.text}</div>
                 <div className="main-image-container">
                   <p>Purchased Item:</p>
-                  <img src={mainImage} /><span className="wt-text">{productName}</span>
+                  <img src={mainImage} /><span className="wt-text wt-text-gray">{productName}</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+      <div className="wt-text-center">
+        <button className="wt-btn wt-btn--transparent">
+            <span>See more reviews</span>
+        </button>
       </div>
     </div>
   );
