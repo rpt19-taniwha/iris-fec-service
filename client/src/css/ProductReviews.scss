@@ -24,6 +24,32 @@
 	overflow-wrap: break-word !important;
 	word-wrap: break-word !important;
 }
+
+#reviews .wt-display-flex {
+	display: flex !important;
+}
+
+#reviews .wt-display-flex .stars {
+	margin: 19px 0 0 0;
+	display: flex;
+}
+
+#reviews .wt-display-flex .wt-label {
+	color: rgb(89, 89, 89);
+	font-weight: 300;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+#reviews .wt-display-flex > div {
+	margin-right: 24px !important;
+}
+
+#reviews .wt-display-flex .store-reviews-num {
+	font-size: 26px;
+	font-family: "Guardian-EgypTT",serif;
+}
+
 .wt-tab__item {
 	white-space: nowrap;
 	background: none;
@@ -31,6 +57,7 @@
 	color: inherit;
 	font: inherit;
 	cursor: pointer;
+	bottom: -2px;
 	text-align: left;
 	outline: none;
 	text-decoration: none;
@@ -48,7 +75,7 @@
 	content: '';
 	transform: scaleX(0);
 	bottom: -50% !important;
-	left: -6%;
+	left: 0%;
   width: 220px;
 	position: inherit;
 	border-bottom: 2px solid rgba(34, 34, 34, 0.5);
@@ -71,7 +98,6 @@
 	margin-left: 12px !important;
 	background: #EAEAEA;
 	border-radius: 15px;
-	display: inline-block;
 	word-break: break-word;
 	line-height: 1;
 	font-size: 13px;
@@ -89,13 +115,12 @@
 	font-size: 14px;
 	margin-right: 6px;
 	margin-bottom: 10px;
+	line-height: 1.4
 }
 
 #reviews .container{
 	padding-left: 48px;
 }
-
-
 
 .productReviews .main-image-container{
 	display:none;
@@ -109,6 +134,7 @@
 	padding-top: 20px;
 	margin-bottom: 30px;
 }
+
 .storeReviews .main-image-container img {
 	border-radius: 6px !important;
 	overflow: hidden !important;
@@ -116,9 +142,48 @@
 	width: 40px;
 }
 
+.wt-btn--transparent {
+	font: inherit;
+	cursor: pointer;
+	border: none;
+	border-radius: 24px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.5;
+	min-height: 48px;
+	min-width: 48px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 18px;
+	padding-right: 18px;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	z-index: 10;
+}
+
+.wt-btn--transparent{
+	display:block;
+	margin:auto;
+}
+
+.wt-btn--transparent:hover{
+	-ms-transform: scale(0.7) perspective(1px);
+	-moz-transform: scale(0.7) perspective(1px);
+	transition: transform 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42),opacity 150ms ease-out;
+	background-color: rgb(216, 216, 216);
+	cursor:pointer;
+}
+
 .wt-text{
 	text-decoration: underline;
 	transition: opacity 200ms ease-out;
 	color: #595959 !important;
 	margin-left: 15px;
+}
+
+.storeReviews,
+.productReviews {
+	margin-bottom: 40px;
 }

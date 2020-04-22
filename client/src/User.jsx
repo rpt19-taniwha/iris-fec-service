@@ -26,7 +26,7 @@ const User = (props) => {
       {users.map((val) => (
         <div key={val.id} className="user wt-display-flex-xs wt-align-items-center wt-mb-xs-1">
           <img alt={val.username} src={`https://i.picsum.photos/id/${Math.floor((Math.random() * 100) + 1)}/75/75.jpg`} />
-          <div key={val.id} className="username">{val.username}</div>
+          <div key={val.id} className="username wt-text-gray">{val.username}</div>
         </div>
       ))}
     </div>
