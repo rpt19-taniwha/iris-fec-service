@@ -20,11 +20,6 @@ class App extends React.Component {
     this.setState({ storeId: '59' });
   }
 
-  // getProduct(storeId) {
-  //   // make call to products/:number  storeNumber
-
-  // }
-
   render() {
     const { productId, storeId } = this.state;
     return <div className="container"><ProductReviews productId={productId} storeId={storeId} /></div>;
