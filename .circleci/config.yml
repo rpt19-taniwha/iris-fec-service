@@ -5,6 +5,14 @@ jobs:
   build-and-test:
     executor:
       name: node/default
+      docker:
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: no
+          MYSQL_ROOT_PASSWORD: 'password'
+          MYSQL_DATABASE: etsy
+          MYSQL_ROOT_HOST: 127.0.0.1
+          MYSQL_USER: root
     steps:
       - checkout
       - node/with-cache:
@@ -15,7 +23,8 @@ jobs:
                 no_output_timeout: 3m
             - run:
                 name: Install dependencies and run tests
-                command: mysql -u root -p
+                command: |
+                  mysql -u root -p
 workflows:
     build-and-test:
       jobs:
