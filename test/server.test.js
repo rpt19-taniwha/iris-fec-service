@@ -54,5 +54,20 @@ describe('Test Reviews', () => {
       expect(response.body[0]).toHaveProperty('username');
       done();
     });
+
+    test('Test getting product rating average is a number', async (done) => {
+      const response = await request(app).get('/product/reviews/549504785/average');
+      expect(response.statusCode).toBe(200);
+      expect(response.body[0]['AVG(star_rating)']).toEqual(expect.any(Number));
+      done();
+    });
+
+
+    test('Test getting store rating average is a number', async (done) => {
+      const response = await request(app).get('/store/reviews/59/average');
+      expect(response.statusCode).toBe(200);
+      expect(response.body[0]['AVG(star_rating)']).toEqual(expect.any(Number));
+      done();
+    });
   });
 });
