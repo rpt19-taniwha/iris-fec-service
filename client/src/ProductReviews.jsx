@@ -40,7 +40,7 @@ const ProductReviews = (props) => {
   const getProductImage = (productId) => {
     axios.get(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/mainImage/${productId}`)
       .then((res) => {
-        setMainImage(res.data.mainImage)
+        setMainImage(res.data)
       });
   };
 
