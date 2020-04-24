@@ -19,13 +19,17 @@ module.exports = {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: ['src/modules/**/*.{js,jsx,mjs}'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+  },
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [

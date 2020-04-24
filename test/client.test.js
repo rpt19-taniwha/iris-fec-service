@@ -6,7 +6,7 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import ProductReviews from '../client/src/product_reviews.jsx';
+import ProductReviews from '../client/src/ProductReviews.jsx';
 
 
 describe('Product Reviews Component', () => {
@@ -17,4 +17,26 @@ describe('Product Reviews Component', () => {
     expect((text).exists()).toBe(true);
     done();
   });
+
+  it('should show reviews', (done) => {
+    const wrapper = shallow(<ProductReviews productId="1" storeId="1" />);
+    const text = wrapper.find('#reviews > div > div.reviews');
+    expect((text).exists()).toBe(true);
+    done();
+  });
+
+  it('should show reviews', (done) => {
+    const wrapper = shallow(<ProductReviews productId="1" storeId="1" />);
+    const text = wrapper.find('#reviews > div > div.reviews');
+    expect((text).exists()).toBe(true);
+    done();
+  });
+
+  it('should have store reviews', (done) => {
+    const wrapper = shallow(<ProductReviews productId="1" storeId="1" />);
+    const text = wrapper.find('.store-reviews-num');
+    expect((text).exists()).toBe(true);
+    done();
+  });
+
 });

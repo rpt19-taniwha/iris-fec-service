@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useLayoutEffect, useState } from 'react';
-import './css/user.css';
 import Axios from 'axios';
 
 const User = (props) => {

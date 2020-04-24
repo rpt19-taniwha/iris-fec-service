@@ -103,7 +103,7 @@ const ProductReviews = (props) => {
       <div className="wt-display-flex">
         <div>
           <p className="wt-label">Shop Rating</p>
-          <p className="stars"><span>{starGenerator(storeReviewsAverage)}</span></p>
+          <p className="stars"><span>{starGenerator(productReviewsAverage)}</span></p>
         </div>
         <div>
           <p className="wt-label">Total shop reviews</p>
@@ -123,7 +123,7 @@ const ProductReviews = (props) => {
             <span className="wt-badge">{storeReviews.length}</span>
           </div>
         </div>
-        <div>
+        <div className="reviews">
           {reviews.map((val) => (
             <div className={reviewType}>
               <div className="wt-display-flex-xs wt-align-items-center wt-mb-xs-1">
@@ -142,7 +142,7 @@ const ProductReviews = (props) => {
           ))}
         </div>
       </div>
-      <div className="wt-text-center">
+      <div className="wt-text-center see-more-reviews">
         <button className="wt-btn wt-btn--transparent">
             <span>See more reviews</span>
         </button>
